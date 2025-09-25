@@ -2,7 +2,7 @@ def get_variant(item, level):
     return item["variants"][level]
 
 
-def buildJson(character_data):
+def build_character_json(character_data):
 
     def ascension_template():
         return {
