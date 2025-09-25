@@ -3,6 +3,8 @@ from character import build_character_json
 from weapon import build_weapon_json
 import datetime
 import json
+import streamlit.web.cli as stcli
+import sys
 import os
 from items_data import ENEMY_DROP, FORGERY_DROP, BOSS_DROP, WEEKLY_DROP, LOCAL_MATERIAL
 from character_data import ATTRIBUTE, CLASS, NATION, WEAPON
@@ -162,7 +164,7 @@ elif st.session_state.page == "item":
     rarity = st.selectbox("Rarity", [1, 2, 3, 4, 5])
     source = st.selectbox("Source", SOURCES)
 
-    if st.button("Save Item"):
+    if st.button("Save"):
         item_data = {
             "name": name.strip(),
             "id": name.strip().lower().replace(" ", "-"),
@@ -172,3 +174,7 @@ elif st.session_state.page == "item":
 
         save_file(item_data, "items")
         st.json(item_data)
+
+if __name__ == "__main__":
+    sys.arg = ["streamlit", "run", "main.py", "--server.headless=true"]
+    sys.exit(stcli.main())

@@ -1,0 +1,13 @@
+dist/
+.env
+
+.vscode
+.vs
+.idea
+
+/characters
+/weapons
+/items
+
+/__pycache__
+/build
