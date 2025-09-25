@@ -14,16 +14,11 @@ st.set_page_config(page_title="Wuthering Waves API GUI")
 st.title("Wuthering Waves JSON builder")
 
 
-def save_file(file_json, folder):
-    os.makedirs(folder, exist_ok=True)
+def save_file(file_json):
+    file_name = f"{file_json['id']}.json"
 
-    path = os.path.join(folder, f"{file_json['id']}.json")
-
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(file_json, f, ensure_ascii=False, indent=4)
-
-    st.success(f"File saved as {path}")
-    return path
+    st.success(f"Valid file {file_name}")
+    return file_name
 
 
 if "page" not in st.session_state:
@@ -97,25 +92,33 @@ if st.session_state.page == "character":
         with cols[1]:
             local_mat = st.selectbox("Local", LOCAL_MATERIAL)
 
-    if st.button("Save"):
-        character_data = {
-            "id": name.strip().lower(),
-            "name": name.strip(),
-            "element": element,
-            "weapon": weapon,
-            "rarity": rarity,
-            "gender": gender,
-            "nation": nation,
-            "class": char_class,
-            "release": release_date_str,
-            "enemy_drop": enemy_drop,
-            "weekly_drop": weekly_boss,
-            "forgery_drop": forgery_drop,
-            "boss_drop": boss_drop,
-            "local_drop": local_mat,
-        }
-        character_json = build_character_json(character_data)
-        save_file(character_json, "characters")
+    character_data = {
+        "id": name.strip().lower(),
+        "name": name.strip(),
+        "element": element,
+        "weapon": weapon,
+        "rarity": rarity,
+        "gender": gender,
+        "nation": nation,
+        "class": char_class,
+        "release": release_date_str,
+        "enemy_drop": enemy_drop,
+        "weekly_drop": weekly_boss,
+        "forgery_drop": forgery_drop,
+        "boss_drop": boss_drop,
+        "local_drop": local_mat,
+    }
+    character_json = build_character_json(character_data)
+
+    file_name = f"{character_json['id']}.json"
+    if st.download_button(
+        label="Save",
+        data=json.dumps(character_json, ensure_ascii=False, indent=4),
+        file_name=file_name,
+        mime="application/json",
+    ):
+        st.success(f"Saved successfully as {character_json}")
+        st.json(character_json)
 
 elif st.session_state.page == "weapon":
     st.subheader("Weapon Form")
@@ -139,20 +142,27 @@ elif st.session_state.page == "weapon":
     enemy_drop_base = st.selectbox("Common", [mat["base"] for mat in ENEMY_DROP])
     enemy_drop = next(mat for mat in ENEMY_DROP if mat["base"] == enemy_drop_base)
 
-    if st.button("Save"):
-        weapon_data = {
-            "name": name.strip(),
-            "id": name.lower().replace(" ", "-").replace("'", "-"),
-            "type": weapon_type,
-            "rarity": rarity,
-            "base_attack": base_attack,
-            "sub_stat": sub_stat,
-            "base_sub": base_sub,
-            "enemy_drop": enemy_drop,
-            "forgery_drop": "",
-        }
-        weapon_json = build_weapon_json(weapon_data)
-        save_file(weapon_json, "weapons")
+    weapon_data = {
+        "name": name.strip(),
+        "id": name.lower().replace(" ", "-").replace("'", "-"),
+        "type": weapon_type,
+        "rarity": rarity,
+        "base_attack": base_attack,
+        "sub_stat": sub_stat,
+        "base_sub": base_sub,
+        "enemy_drop": enemy_drop,
+        "forgery_drop": "",
+    }
+
+    weapon_json = build_weapon_json(weapon_data)
+    file_name = f"{weapon_json['id']}.json"
+    if st.download_button(
+        label="Save",
+        data=json.dumps(weapon_json, ensure_ascii=False, indent=4),
+        file_name=file_name,
+        mime="application/json",
+    ):
+        st.success(f"Saved successfully as {file_name}")
         st.json(weapon_json)
 
 elif st.session_state.page == "item":
@@ -164,13 +174,19 @@ elif st.session_state.page == "item":
     rarity = st.selectbox("Rarity", [1, 2, 3, 4, 5])
     source = st.selectbox("Source", SOURCES)
 
-    if st.button("Save"):
-        item_data = {
-            "name": name.strip(),
-            "id": name.strip().lower().replace(" ", "-"),
-            "rarity": rarity,
-            "source": source,
-        }
+    item_data = {
+        "name": name.strip(),
+        "id": name.strip().lower().replace(" ", "-"),
+        "rarity": rarity,
+        "source": source,
+    }
 
-        save_file(item_data, "items")
+    file_name = f"{item_data['id']}.json"
+    if st.download_button(
+        label="Save",
+        data=json.dumps(item_data, ensure_ascii=False, indent=4),
+        file_name=file_name,
+        mime="application/json",
+    ):
+        st.success(f"Saved successfully as {file_name}")
         st.json(item_data)
