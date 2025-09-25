@@ -174,7 +174,3 @@ elif st.session_state.page == "item":
 
         save_file(item_data, "items")
         st.json(item_data)
-
-if __name__ == "__main__":
-    sys.arg = ["streamlit", "run", "main.py", "--server.headless=true"]
-    sys.exit(stcli.main())
