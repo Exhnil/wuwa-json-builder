@@ -7,6 +7,11 @@ The goal is to simplify the creation of data for an external API.
 
 ### Installation
 
+Just use the bat file ?
+
+
+Or follow below instructions if it doesn't work
+
 Optional but recommended
 ```
 python -m venv venv
