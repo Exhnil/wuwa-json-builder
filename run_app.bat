@@ -12,13 +12,12 @@ IF %ERRORLEVEL% NEQ 0 (
     exit /b
 )
 
-pause
 REM Créer un venv local
 IF NOT EXIST venv (
     echo [INFO] Creating virtual environment...
     python -m venv venv
 )
-pause
+
 REM Activer le venv
 call venv\scripts\activate.bat
 
