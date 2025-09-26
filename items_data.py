@@ -125,5 +125,5 @@ LOCAL_MATERIAL = [
     "Afterlife",
     "Stone Rose",
     "Silverglow Bloom",
-    "Luminous Calendula" "Sliverglow Bloom",
+    "Luminous Calendula",
 ]

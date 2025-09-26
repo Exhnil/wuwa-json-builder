@@ -1,4 +1,4 @@
-NATION = ["Huanglong", "Rinascita"]
+NATION = ["Huanglong", "Rinascita","The Black Shores"]
 
 ATTRIBUTE = ["Fusion", "Glacio", "Aero", "Electro", "Spectro", "Havoc"]
 
