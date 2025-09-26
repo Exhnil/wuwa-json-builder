@@ -129,7 +129,7 @@ def build_character_json(character_data):
     character_json = {
         "id": character_data["id"],
         "name": character_data["name"],
-        "element": character_data["element"],
+        "attribute": character_data["attribute"],
         "weapon": character_data["weapon"],
         "gender": character_data["gender"],
         "nation": character_data["nation"],

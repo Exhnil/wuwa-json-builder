@@ -3,23 +3,12 @@ from character import build_character_json
 from weapon import build_weapon_json
 import datetime
 import json
-import streamlit.web.cli as stcli
-import sys
-import os
 from items_data import ENEMY_DROP, FORGERY_DROP, BOSS_DROP, WEEKLY_DROP, LOCAL_MATERIAL
 from character_data import ATTRIBUTE, CLASS, NATION, WEAPON
 from weapons_data import SUB_STAT
 
 st.set_page_config(page_title="Wuthering Waves API GUI")
 st.title("Wuthering Waves JSON builder")
-
-
-def save_file(file_json):
-    file_name = f"{file_json['id']}.json"
-
-    st.success(f"Valid file {file_name}")
-    return file_name
-
 
 if "page" not in st.session_state:
     st.session_state.page = None
@@ -53,7 +42,7 @@ if st.session_state.page == "character":
         with cols[0]:
             rarity = st.selectbox("Rarity", [4, 5])
         with cols[1]:
-            element = st.selectbox("Element", ATTRIBUTE)
+            attribute = st.selectbox("Attribute", ATTRIBUTE)
         cols = st.columns(3)
         with cols[0]:
             nation = st.selectbox("Nation", NATION)
@@ -95,7 +84,7 @@ if st.session_state.page == "character":
     character_data = {
         "id": name.strip().lower(),
         "name": name.strip(),
-        "element": element,
+        "attribute": attribute,
         "weapon": weapon,
         "rarity": rarity,
         "gender": gender,
@@ -117,7 +106,7 @@ if st.session_state.page == "character":
         file_name=file_name,
         mime="application/json",
     ):
-        st.success(f"Saved successfully as {character_json}")
+        st.success(f"Saved successfully as {file_name}")
         st.json(character_json)
 
 elif st.session_state.page == "weapon":
