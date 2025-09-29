@@ -157,15 +157,23 @@ elif st.session_state.page == "weapon":
 elif st.session_state.page == "item":
 
     SOURCES = ["enemies", "forgery", "boss", "weekly", "local"]
+    TYPES = [
+        "Resonator Ascension Material",
+        "Ascension Material",
+        "Weapon and Skill Material",
+        "Skill Upgrade Material",
+    ]
     st.subheader("Item Form")
 
     name = st.text_input("Name")
     rarity = st.selectbox("Rarity", [1, 2, 3, 4, 5])
+    type = st.selectbox("Type", TYPES)
     source = st.selectbox("Source", SOURCES)
 
     item_data = {
         "name": name.strip(),
         "id": name.strip().lower().replace(" ", "-"),
+        "type": type,
         "rarity": rarity,
         "source": source,
     }
