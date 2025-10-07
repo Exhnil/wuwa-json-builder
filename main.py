@@ -118,7 +118,7 @@ elif st.session_state.page == "weapon":
     with cols[0]:
         weapon_type = st.selectbox("Type", WEAPON)
     with cols[1]:
-        rarity = st.selectbox("Rarity", [4, 5])
+        rarity = st.selectbox("Rarity", [3, 4, 5])
 
     cols = st.columns(3)
     with cols[0]:
@@ -140,7 +140,6 @@ elif st.session_state.page == "weapon":
         "sub_stat": sub_stat,
         "base_sub": base_sub,
         "enemy_drop": enemy_drop,
-        "forgery_drop": "",
     }
 
     weapon_json = build_weapon_json(weapon_data)
