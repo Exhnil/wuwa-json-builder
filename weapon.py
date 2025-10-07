@@ -115,9 +115,9 @@ def ascension_template_3(weapon_data):
 
 
 ASCENSION_TEMPLATES = {
-    "3": ascension_template_3,
-    "4": ascension_template_4,
-    "5": ascension_template_5,
+    3: ascension_template_3,
+    4: ascension_template_4,
+    5: ascension_template_5,
 }
 
 
