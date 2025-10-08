@@ -12,31 +12,31 @@ FORGERY_BY_TYPE = {
 def ascension_template_5(weapon_data):
     forgery_drop = FORGERY_BY_TYPE[weapon_data["type"]]
     return {
-        "20": [
+        "1": [
             {"name": "Shell Credit", "value": 10000},
             {"name": get_variant(weapon_data["enemy_drop"], 0), "value": 6},
         ],
-        "40": [
+        "2": [
             {"name": "Shell Credit", "value": 20000},
             {"name": get_variant(weapon_data["enemy_drop"], 1), "value": 6},
             {"name": get_variant(forgery_drop, 0), "value": 6},
         ],
-        "50": [
+        "3": [
             {"name": "Shell Credit", "value": 40000},
             {"name": get_variant(weapon_data["enemy_drop"], 2), "value": 4},
             {"name": get_variant(forgery_drop, 1), "value": 8},
         ],
-        "60": [
+        "4": [
             {"name": "Shell Credit", "value": 60000},
             {"name": get_variant(weapon_data["enemy_drop"], 2), "value": 6},
             {"name": get_variant(forgery_drop, 2), "value": 6},
         ],
-        "70": [
+        "5": [
             {"name": "Shell Credit", "value": 80000},
             {"name": get_variant(weapon_data["enemy_drop"], 3), "value": 4},
             {"name": get_variant(forgery_drop, 3), "value": 8},
         ],
-        "80": [
+        "6": [
             {"name": "Shell Credit", "value": 12000},
             {"name": get_variant(weapon_data["enemy_drop"], 3), "value": 8},
             {"name": get_variant(forgery_drop, 3), "value": 12},
@@ -47,31 +47,31 @@ def ascension_template_5(weapon_data):
 def ascension_template_4(weapon_data):
     forgery_drop = FORGERY_BY_TYPE[weapon_data["type"]]
     return {
-        "20": [
+        "1": [
             {"name": "Shell Credit", "value": 8000},
             {"name": get_variant(weapon_data["enemy_drop"], 0), "value": 5},
         ],
-        "40": [
+        "2": [
             {"name": "Shell Credit", "value": 16000},
             {"name": get_variant(weapon_data["enemy_drop"], 1), "value": 5},
             {"name": get_variant(forgery_drop, 0), "value": 5},
         ],
-        "50": [
+        "3": [
             {"name": "Shell Credit", "value": 32000},
             {"name": get_variant(weapon_data["enemy_drop"], 2), "value": 4},
             {"name": get_variant(forgery_drop, 1), "value": 7},
         ],
-        "60": [
+        "4": [
             {"name": "Shell Credit", "value": 48000},
             {"name": get_variant(weapon_data["enemy_drop"], 2), "value": 5},
             {"name": get_variant(forgery_drop, 2), "value": 5},
         ],
-        "70": [
+        "5": [
             {"name": "Shell Credit", "value": 64000},
             {"name": get_variant(weapon_data["enemy_drop"], 3), "value": 4},
             {"name": get_variant(forgery_drop, 3), "value": 7},
         ],
-        "80": [
+        "6": [
             {"name": "Shell Credit", "value": 96000},
             {"name": get_variant(weapon_data["enemy_drop"], 3), "value": 7},
             {"name": get_variant(forgery_drop, 3), "value": 10},
@@ -82,31 +82,31 @@ def ascension_template_4(weapon_data):
 def ascension_template_3(weapon_data):
     forgery_drop = FORGERY_BY_TYPE[weapon_data["type"]]
     return {
-        "20": [
+        "1": [
             {"name": "Shell Credit", "value": 6000},
             {"name": get_variant(weapon_data["enemy_drop"], 0), "value": 4},
         ],
-        "40": [
+        "2": [
             {"name": "Shell Credit", "value": 12000},
             {"name": get_variant(weapon_data["enemy_drop"], 1), "value": 4},
             {"name": get_variant(forgery_drop, 0), "value": 4},
         ],
-        "50": [
+        "3": [
             {"name": "Shell Credit", "value": 24000},
             {"name": get_variant(weapon_data["enemy_drop"], 2), "value": 3},
             {"name": get_variant(forgery_drop, 1), "value": 5},
         ],
-        "60": [
+        "4": [
             {"name": "Shell Credit", "value": 36000},
             {"name": get_variant(weapon_data["enemy_drop"], 2), "value": 4},
             {"name": get_variant(forgery_drop, 2), "value": 4},
         ],
-        "70": [
+        "5": [
             {"name": "Shell Credit", "value": 48000},
             {"name": get_variant(weapon_data["enemy_drop"], 3), "value": 3},
             {"name": get_variant(forgery_drop, 3), "value": 5},
         ],
-        "80": [
+        "6": [
             {"name": "Shell Credit", "value": 72000},
             {"name": get_variant(weapon_data["enemy_drop"], 3), "value": 5},
             {"name": get_variant(forgery_drop, 3), "value": 8},

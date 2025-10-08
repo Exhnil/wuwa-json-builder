@@ -6,35 +6,35 @@ def build_character_json(character_data):
 
     def ascension_template():
         return {
-            "20": [
+            "1": [
                 {"name": "Shell Credit", "value": 5000},
                 {"name": get_variant(character_data["enemy_drop"], 0), "value": 4},
             ],
-            "40": [
+            "2": [
                 {"name": "Shell Credit", "value": 10000},
                 {"name": character_data["local_drop"], "value": 4},
                 {"name": get_variant(character_data["enemy_drop"], 1), "value": 4},
                 {"name": character_data["boss_drop"], "value": 3},
             ],
-            "50": [
+            "3": [
                 {"name": "Shell Credit", "value": 15000},
                 {"name": character_data["local_drop"], "value": 8},
                 {"name": get_variant(character_data["enemy_drop"], 1), "value": 8},
                 {"name": character_data["boss_drop"], "value": 6},
             ],
-            "60": [
+            "4": [
                 {"name": "Shell Credit", "value": 20000},
                 {"name": character_data["local_drop"], "value": 12},
                 {"name": get_variant(character_data["enemy_drop"], 2), "value": 4},
                 {"name": character_data["boss_drop"], "value": 9},
             ],
-            "70": [
+            "5": [
                 {"name": "Shell Credit", "value": 40000},
                 {"name": character_data["local_drop"], "value": 16},
                 {"name": get_variant(character_data["enemy_drop"], 2), "value": 8},
                 {"name": character_data["boss_drop"], "value": 12},
             ],
-            "80": [
+            "6": [
                 {"name": "Shell Credit", "value": 80000},
                 {"name": character_data["local_drop"], "value": 20},
                 {"name": get_variant(character_data["enemy_drop"], 3), "value": 4},
