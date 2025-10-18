@@ -103,6 +103,7 @@ WEEKLY_DROP = [
     "Sentinel's Dagger",
     "Unending Destruction",
     "When Irises Bloom",
+    "Curse of the Absyss",
 ]
 LOCAL_MATERIAL = [
     "Iris",
