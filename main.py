@@ -10,10 +10,26 @@ from weapons_data import SUB_STAT
 st.set_page_config(page_title="Wuthering Waves API GUI")
 st.title("Wuthering Waves JSON builder")
 
+
+def get_mat_by_type(domain_type: str):
+    if domain_type == "Forgery Challenge":
+        return [m["base"] for m in FORGERY_DROP]
+    elif domain_type == "Overlord Class":
+        return BOSS_DROP
+    elif domain_type == "Weekly Challenge":
+        return WEEKLY_DROP
+    return []
+
+
+def get_forgery_values():
+    # Raretés 2 → 5
+    return [6.4, 8.0, 1.682, 0.206]
+
+
 if "page" not in st.session_state:
     st.session_state.page = None
 
-col1, col2, col3 = st.columns(3)
+col1, col2, col3, col4 = st.columns(4)
 
 with col1:
     if st.button("Character Form"):
@@ -26,6 +42,10 @@ with col2:
 with col3:
     if st.button("Item Form"):
         st.session_state.page = "item"
+
+with col4:
+    if st.button("Domain Form"):
+        st.session_state.page = "domain"
 
 if st.session_state.page == "character":
     st.subheader("Character Form")
@@ -186,3 +206,80 @@ elif st.session_state.page == "item":
     ):
         st.success(f"Saved successfully as {file_name}")
         st.json(item_data)
+
+
+elif st.session_state.page == "domain":
+
+    st.subheader("Domain Form")
+    name = st.text_input("Name")
+    type = st.selectbox(
+        "Type", ["Forgery Challenge", "Weekly Challenge", "Overlord Class"]
+    )
+    cost = st.number_input("Cost", min_value=0, step=1)
+
+    st.divider()
+
+    st.subheader("Materials")
+
+    available_materials = get_mat_by_type(type)
+    base_material = st.selectbox("Select material", available_materials)
+
+    add_button = st.button("Add Material")
+
+    if "domain_materials" not in st.session_state:
+        st.session_state.domain_materials = []
+
+    if add_button and base_material:
+        if type == "Forgery Challenge":
+            drop_rates = [6.4, 8, 1.682, 0.206]
+            variants = next(
+                (m["variants"] for m in FORGERY_DROP if m["base"] == base_material), []
+            )
+            for i, v in enumerate(variants):
+                drop_rate = drop_rates[i] if i < len(drop_rates) else None
+                st.session_state.domain_materials.append(
+                    {
+                        "name": v,
+                        "id": v.lower().replace(" ", "-").replace("'", "-"),
+                        "value": drop_rate,
+                    }
+                )
+        else:
+            drop_rate = (
+                3
+                if type == "Weekly Challenge"
+                else 4.1 if type == "Overlord Class" else None
+            )
+            st.session_state.domain_materials.append(
+                {
+                    "name": base_material,
+                    "id": base_material.lower().replace(" ", "-").replace("'", "-"),
+                    "value": drop_rate,
+                }
+            )
+
+    if st.session_state.domain_materials:
+        st.table(st.session_state.domain_materials)
+
+    st.divider()
+
+    data = {
+        "name": name.strip(),
+        "id": name.strip().lower().replace(" ", "-").replace("'", "-"),
+        "type": type,
+        "cost": cost,
+        "materials": st.session_state.domain_materials,
+    }
+
+    file_name = f"{data['id']}.json"
+
+    if st.download_button(
+        label="Save",
+        data=json.dumps(data, ensure_ascii=False, indent=4),
+        file_name=file_name,
+        mime="application/json",
+    ):
+
+        st.success(f"saved successfully")
+        st.json(data)
+        st.session_state.domain_materials = []

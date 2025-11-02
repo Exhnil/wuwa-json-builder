@@ -81,6 +81,7 @@ BOSS_DROP = [
     "Mysterious Code",
     "Strife Tacet Core",
     "Thundering Tacet Core",
+    "Hidden Thunder Tacet Core",
     "Elegy Tacet Core",
     "Rage Tacet Core",
     "Roaring Rock Fist",
@@ -103,7 +104,7 @@ WEEKLY_DROP = [
     "Sentinel's Dagger",
     "Unending Destruction",
     "When Irises Bloom",
-    "Curse of the Absyss",
+    "Curse of the Abyss",
 ]
 LOCAL_MATERIAL = [
     "Iris",
