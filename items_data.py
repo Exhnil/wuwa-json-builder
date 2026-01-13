@@ -39,6 +39,15 @@ ENEMY_DROP = [
             "FF Tidal Residuum",
         ],
     },
+    {
+        "base": "Incomplete Combuster",
+        "variants": ["Incomplete Combuster", "Aftertune Combuster", "Renmant Combuster", "Reverb Combuster"],
+    },
+    {
+        "base": "LF Exoswarm Core",
+        "variants": ["LF Exoswarm Core", "MF Exoswarm Core", "HF Exoswarm Core", "FF Exoswarm Core"],
+    }
+            
 ]
 FORGERY_DROP = [
     {
@@ -76,6 +85,14 @@ FORGERY_DROP = [
         "base": "Cadence Seed",
         "variants": ["Cadence Seed", "Cadence Bud", "Cadence Leaf", "Cadence Blossom"],
     },
+    {
+        "base": "Incomplete Combuster",
+        "variants": ["Incomplete Combuster", "Aftertune Combuster", "Renmant Combuster", "Reverb Combuster"],
+    },
+    {
+        "base": "LF Carved Crystal",
+        "variants": ["LF Carved Crystal", "MF Carved Crystal", "HF Carved Crystal", "FF Carved Crystal"],
+    },
 ]
 BOSS_DROP = [
     "Mysterious Code",
@@ -96,6 +113,7 @@ BOSS_DROP = [
     "Truth in Lies",
     "Blighted Crown of Puppet King",
     "Abyssal Husk",
+    "Suncoveter's Reach"
 ]
 WEEKLY_DROP = [
     "Monument Bell",
@@ -104,7 +122,7 @@ WEEKLY_DROP = [
     "Sentinel's Dagger",
     "Unending Destruction",
     "When Irises Bloom",
-    "Curse of the Abyss",
+    "Curse of the Abyss"
 ]
 LOCAL_MATERIAL = [
     "Iris",
@@ -128,4 +146,6 @@ LOCAL_MATERIAL = [
     "Stone Rose",
     "Silverglow Bloom",
     "Luminous Calendula",
+    "Summer Flower",
+    "Rimewisp"
 ]
