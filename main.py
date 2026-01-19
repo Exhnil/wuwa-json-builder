@@ -191,7 +191,7 @@ elif st.session_state.page == "item":
 
     item_data = {
         "name": name.strip(),
-        "id": name.strip().lower().replace(" ", "-"),
+        "id": name.strip().lower().replace(" ", "-").replace("'","-"),
         "type": type,
         "rarity": rarity,
         "source": source,
