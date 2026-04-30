@@ -67,7 +67,7 @@ ENEMY_DROP = [
         ],
     },
     {
-        "base": "LF Exoswarm Pendant",
+        "base": "Fractured Exoswarm Pendant",
         "variants": [
             "Fractured Exoswarm Pendant",
             "Worn Exoswarm Pendant",
