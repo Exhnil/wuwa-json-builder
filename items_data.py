@@ -41,13 +41,40 @@ ENEMY_DROP = [
     },
     {
         "base": "Incomplete Combuster",
-        "variants": ["Incomplete Combuster", "Aftertune Combuster", "Renmant Combuster", "Reverb Combuster"],
+        "variants": [
+            "Incomplete Combuster",
+            "Aftertune Combuster",
+            "Renmant Combuster",
+            "Reverb Combuster",
+        ],
     },
     {
         "base": "LF Exoswarm Core",
-        "variants": ["LF Exoswarm Core", "MF Exoswarm Core", "HF Exoswarm Core", "FF Exoswarm Core"],
-    }
-            
+        "variants": [
+            "LF Exoswarm Core",
+            "MF Exoswarm Core",
+            "HF Exoswarm Core",
+            "FF Exoswarm Core",
+        ],
+    },
+    {
+        "base": "LF Mech Core",
+        "variants": [
+            "LF Mech Core",
+            "MF Mech Core",
+            "HF Mech Core",
+            "FF Mech Core",
+        ],
+    },
+    {
+        "base": "LF Exoswarm Pendant",
+        "variants": [
+            "Fractured Exoswarm Pendant",
+            "Worn Exoswarm Pendant",
+            "Chipped Exoswarm Pendant",
+            "Intact Exoswarm Pendant",
+        ],
+    },
 ]
 FORGERY_DROP = [
     {
@@ -87,11 +114,30 @@ FORGERY_DROP = [
     },
     {
         "base": "Incomplete Combuster",
-        "variants": ["Incomplete Combuster", "Aftertune Combuster", "Renmant Combuster", "Reverb Combuster"],
+        "variants": [
+            "Incomplete Combuster",
+            "Aftertune Combuster",
+            "Renmant Combuster",
+            "Reverb Combuster",
+        ],
     },
     {
         "base": "LF Carved Crystal",
-        "variants": ["LF Carved Crystal", "MF Carved Crystal", "HF Carved Crystal", "FF Carved Crystal"],
+        "variants": [
+            "LF Carved Crystal",
+            "MF Carved Crystal",
+            "HF Carved Crystal",
+            "FF Carved Crystal",
+        ],
+    },
+    {
+        "base": "LF Waveworn Shard",
+        "variants": [
+            "LF Waveworn Shard",
+            "MF Waveworn Shard",
+            "HF Waveworn Shard",
+            "FF Waveworn Shard",
+        ],
     },
 ]
 BOSS_DROP = [
@@ -113,7 +159,9 @@ BOSS_DROP = [
     "Truth in Lies",
     "Blighted Crown of Puppet King",
     "Abyssal Husk",
-    "Suncoveter's Reach"
+    "Suncoveter's Reach",
+    " Burning Judgment",
+    "Our Choice",
 ]
 WEEKLY_DROP = [
     "Monument Bell",
@@ -122,7 +170,8 @@ WEEKLY_DROP = [
     "Sentinel's Dagger",
     "Unending Destruction",
     "When Irises Bloom",
-    "Curse of the Abyss"
+    "Curse of the Abyss",
+    "Gold in Memory",
 ]
 LOCAL_MATERIAL = [
     "Iris",
@@ -147,5 +196,9 @@ LOCAL_MATERIAL = [
     "Silverglow Bloom",
     "Luminous Calendula",
     "Summer Flower",
-    "Rimewisp"
+    "Rimewisp",
+    "Gemini Spore",
+    "Moss Amber",
+    "Edelschnee",
+    "Arithmetic Shell",
 ]
