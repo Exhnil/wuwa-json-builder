@@ -139,6 +139,15 @@ FORGERY_DROP = [
             "FF Waveworn Shard",
         ],
     },
+    {
+        "base": "Broken Wing Polarizer",
+        "variants": [
+            "Broken Wing Polarizer",
+            "Monowing Polarizer",
+            "Polywing Polarizer",
+            "Layered Wing Polarizer",
+        ],
+    },
 ]
 BOSS_DROP = [
     "Mysterious Code",
