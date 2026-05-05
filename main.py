@@ -150,6 +150,10 @@ elif st.session_state.page == "weapon":
 
     enemy_drop_base = st.selectbox("Common", [mat["base"] for mat in ENEMY_DROP])
     enemy_drop = next(mat for mat in ENEMY_DROP if mat["base"] == enemy_drop_base)
+    forgery_drop_base = st.selectbox(
+        "Forgery Challenge", [mat["base"] for mat in FORGERY_DROP]
+    )
+    forgery_drop = next(mat for mat in FORGERY_DROP if mat["base"] == forgery_drop_base)
 
     weapon_data = {
         "name": name.strip(),
@@ -160,6 +164,7 @@ elif st.session_state.page == "weapon":
         "sub_stat": sub_stat,
         "base_sub": base_sub,
         "enemy_drop": enemy_drop,
+        "forgery_drop": forgery_drop,
     }
 
     weapon_json = build_weapon_json(weapon_data)
@@ -188,13 +193,15 @@ elif st.session_state.page == "item":
     rarity = st.selectbox("Rarity", [1, 2, 3, 4, 5])
     type = st.selectbox("Type", TYPES)
     source = st.selectbox("Source", SOURCES)
+    group = st.text_input("Group")
 
     item_data = {
         "name": name.strip(),
-        "id": name.strip().lower().replace(" ", "-").replace("'","-"),
+        "id": name.strip().lower().replace(" ", "-").replace("'", "-"),
         "type": type,
         "rarity": rarity,
         "source": source,
+        "group": group,
     }
 
     file_name = f"{item_data['id']}.json"
@@ -241,6 +248,7 @@ elif st.session_state.page == "domain":
                     {
                         "name": v,
                         "id": v.lower().replace(" ", "-").replace("'", "-"),
+                        "rarity": i + 2,
                         "value": drop_rate,
                     }
                 )

@@ -1,5 +1,15 @@
+import re
+
+
+def to_kebab(s: str) -> str:
+    s = s.lower()
+    s = s.replace("'", "-")
+    s = re.sub(r"[^a-z0-9]+", "-", s)
+    return s.strip("-")
+
+
 def get_variant(item, level):
-    return item["variants"][level]
+    return to_kebab(item["variants"][level])
 
 
 def build_character_json(character_data):
@@ -7,127 +17,127 @@ def build_character_json(character_data):
     def ascension_template():
         return {
             "1": [
-                {"name": "Shell Credit", "value": 5000},
-                {"name": get_variant(character_data["enemy_drop"], 0), "value": 4},
+                {"id": "shell-credit", "value": 5000},
+                {"id": get_variant(character_data["enemy_drop"], 0), "value": 4},
             ],
             "2": [
-                {"name": "Shell Credit", "value": 10000},
-                {"name": character_data["local_drop"], "value": 4},
-                {"name": get_variant(character_data["enemy_drop"], 1), "value": 4},
-                {"name": character_data["boss_drop"], "value": 3},
+                {"id": "shell-credit", "value": 10000},
+                {"id": character_data["local_drop"], "value": 4},
+                {"id": get_variant(character_data["enemy_drop"], 1), "value": 4},
+                {"id": character_data["boss_drop"], "value": 3},
             ],
             "3": [
-                {"name": "Shell Credit", "value": 15000},
-                {"name": character_data["local_drop"], "value": 8},
-                {"name": get_variant(character_data["enemy_drop"], 1), "value": 8},
-                {"name": character_data["boss_drop"], "value": 6},
+                {"id": "shell-credit", "value": 15000},
+                {"id": character_data["local_drop"], "value": 8},
+                {"id": get_variant(character_data["enemy_drop"], 1), "value": 8},
+                {"id": character_data["boss_drop"], "value": 6},
             ],
             "4": [
-                {"name": "Shell Credit", "value": 20000},
-                {"name": character_data["local_drop"], "value": 12},
-                {"name": get_variant(character_data["enemy_drop"], 2), "value": 4},
-                {"name": character_data["boss_drop"], "value": 9},
+                {"id": "shell-credit", "value": 20000},
+                {"id": character_data["local_drop"], "value": 12},
+                {"id": get_variant(character_data["enemy_drop"], 2), "value": 4},
+                {"id": character_data["boss_drop"], "value": 9},
             ],
             "5": [
-                {"name": "Shell Credit", "value": 40000},
-                {"name": character_data["local_drop"], "value": 16},
-                {"name": get_variant(character_data["enemy_drop"], 2), "value": 8},
-                {"name": character_data["boss_drop"], "value": 12},
+                {"id": "shell-credit", "value": 40000},
+                {"id": character_data["local_drop"], "value": 16},
+                {"id": get_variant(character_data["enemy_drop"], 2), "value": 8},
+                {"id": character_data["boss_drop"], "value": 12},
             ],
             "6": [
-                {"name": "Shell Credit", "value": 80000},
-                {"name": character_data["local_drop"], "value": 20},
-                {"name": get_variant(character_data["enemy_drop"], 3), "value": 4},
-                {"name": character_data["boss_drop"], "value": 16},
+                {"id": "shell-credit", "value": 80000},
+                {"id": character_data["local_drop"], "value": 20},
+                {"id": get_variant(character_data["enemy_drop"], 3), "value": 4},
+                {"id": character_data["boss_drop"], "value": 16},
             ],
         }
 
     def skill_template():
         return {
             "2": [
-                {"name": "Shell Credit", "value": 1500},
-                {"name": get_variant(character_data["forgery_drop"], 0), "value": 2},
-                {"name": get_variant(character_data["enemy_drop"], 0), "value": 2},
+                {"id": "shell-credit", "value": 1500},
+                {"id": get_variant(character_data["forgery_drop"], 0), "value": 2},
+                {"id": get_variant(character_data["enemy_drop"], 0), "value": 2},
             ],
             "3": [
-                {"name": "Shell Credit", "value": 2000},
-                {"name": get_variant(character_data["forgery_drop"], 0), "value": 3},
-                {"name": get_variant(character_data["enemy_drop"], 0), "value": 3},
+                {"id": "shell-credit", "value": 2000},
+                {"id": get_variant(character_data["forgery_drop"], 0), "value": 3},
+                {"id": get_variant(character_data["enemy_drop"], 0), "value": 3},
             ],
             "4": [
-                {"name": "Shell Credit", "value": 4500},
-                {"name": get_variant(character_data["forgery_drop"], 1), "value": 2},
-                {"name": get_variant(character_data["enemy_drop"], 1), "value": 2},
+                {"id": "shell-credit", "value": 4500},
+                {"id": get_variant(character_data["forgery_drop"], 1), "value": 2},
+                {"id": get_variant(character_data["enemy_drop"], 1), "value": 2},
             ],
             "5": [
-                {"name": "Shell Credit", "value": 6000},
-                {"name": get_variant(character_data["forgery_drop"], 1), "value": 3},
-                {"name": get_variant(character_data["enemy_drop"], 1), "value": 3},
+                {"id": "shell-credit", "value": 6000},
+                {"id": get_variant(character_data["forgery_drop"], 1), "value": 3},
+                {"id": get_variant(character_data["enemy_drop"], 1), "value": 3},
             ],
             "6": [
-                {"name": "Shell Credit", "value": 16000},
-                {"name": get_variant(character_data["forgery_drop"], 2), "value": 3},
-                {"name": get_variant(character_data["enemy_drop"], 2), "value": 2},
+                {"id": "shell-credit", "value": 16000},
+                {"id": get_variant(character_data["forgery_drop"], 2), "value": 3},
+                {"id": get_variant(character_data["enemy_drop"], 2), "value": 2},
             ],
             "7": [
-                {"name": "Shell Credit", "value": 30000},
-                {"name": get_variant(character_data["forgery_drop"], 2), "value": 5},
-                {"name": get_variant(character_data["enemy_drop"], 2), "value": 3},
-                {"name": character_data["weekly_drop"], "value": 1},
+                {"id": "shell-credit", "value": 30000},
+                {"id": get_variant(character_data["forgery_drop"], 2), "value": 5},
+                {"id": get_variant(character_data["enemy_drop"], 2), "value": 3},
+                {"id": character_data["weekly_drop"], "value": 1},
             ],
             "8": [
-                {"name": "Shell Credit", "value": 50000},
-                {"name": get_variant(character_data["forgery_drop"], 3), "value": 2},
-                {"name": get_variant(character_data["enemy_drop"], 3), "value": 2},
-                {"name": character_data["weekly_drop"], "value": 1},
+                {"id": "shell-credit", "value": 50000},
+                {"id": get_variant(character_data["forgery_drop"], 3), "value": 2},
+                {"id": get_variant(character_data["enemy_drop"], 3), "value": 2},
+                {"id": character_data["weekly_drop"], "value": 1},
             ],
             "9": [
-                {"name": "Shell Credit", "value": 70000},
-                {"name": get_variant(character_data["forgery_drop"], 3), "value": 3},
-                {"name": get_variant(character_data["enemy_drop"], 3), "value": 3},
-                {"name": character_data["weekly_drop"], "value": 1},
+                {"id": "shell-credit", "value": 70000},
+                {"id": get_variant(character_data["forgery_drop"], 3), "value": 3},
+                {"id": get_variant(character_data["enemy_drop"], 3), "value": 3},
+                {"id": character_data["weekly_drop"], "value": 1},
             ],
             "10": [
-                {"name": "Shell Credit", "value": 100000},
-                {"name": get_variant(character_data["forgery_drop"], 3), "value": 6},
-                {"name": get_variant(character_data["enemy_drop"], 3), "value": 4},
-                {"name": character_data["weekly_drop"], "value": 1},
+                {"id": "shell-credit", "value": 100000},
+                {"id": get_variant(character_data["forgery_drop"], 3), "value": 6},
+                {"id": get_variant(character_data["enemy_drop"], 3), "value": 4},
+                {"id": character_data["weekly_drop"], "value": 1},
             ],
         }
 
     def stats_bonus_template():
         return {
             "rank_1": [
-                {"name": "Shell Credit", "value": 50000},
-                {"name": get_variant(character_data["enemy_drop"], 2), "value": 3},
-                {"name": get_variant(character_data["forgery_drop"], 2), "value": 3},
+                {"id": "shell-credit", "value": 50000},
+                {"id": get_variant(character_data["enemy_drop"], 2), "value": 3},
+                {"id": get_variant(character_data["forgery_drop"], 2), "value": 3},
             ],
             "rank_2": [
-                {"name": "Shell Credit", "value": 100000},
-                {"name": get_variant(character_data["enemy_drop"], 3), "value": 3},
-                {"name": get_variant(character_data["forgery_drop"], 3), "value": 3},
-                {"name": character_data["weekly_drop"], "value": 1},
+                {"id": "shell-credit", "value": 100000},
+                {"id": get_variant(character_data["enemy_drop"], 3), "value": 3},
+                {"id": get_variant(character_data["forgery_drop"], 3), "value": 3},
+                {"id": character_data["weekly_drop"], "value": 1},
             ],
         }
 
     def inherent_skill_template():
         return {
             "skill_1": [
-                {"name": "Shell Credit", "value": 10000},
-                {"name": get_variant(character_data["enemy_drop"], 1), "value": 3},
-                {"name": get_variant(character_data["forgery_drop"], 1), "value": 3},
-                {"name": character_data["weekly_drop"], "value": 1},
+                {"id": "shell-credit", "value": 10000},
+                {"id": get_variant(character_data["enemy_drop"], 1), "value": 3},
+                {"id": get_variant(character_data["forgery_drop"], 1), "value": 3},
+                {"id": character_data["weekly_drop"], "value": 1},
             ],
             "skill_2": [
-                {"name": "Shell Credit", "value": 20000},
-                {"name": get_variant(character_data["enemy_drop"], 2), "value": 3},
-                {"name": get_variant(character_data["forgery_drop"], 2), "value": 3},
-                {"name": character_data["weekly_drop"], "value": 1},
+                {"id": "shell-credit", "value": 20000},
+                {"id": get_variant(character_data["enemy_drop"], 2), "value": 3},
+                {"id": get_variant(character_data["forgery_drop"], 2), "value": 3},
+                {"id": character_data["weekly_drop"], "value": 1},
             ],
         }
 
     character_json = {
-        "id": character_data["id"],
+        "id": to_kebab(character_data["id"]),
         "name": character_data["name"],
         "attribute": character_data["attribute"],
         "weapon": character_data["weapon"],

@@ -40,15 +40,6 @@ ENEMY_DROP = [
         ],
     },
     {
-        "base": "Incomplete Combuster",
-        "variants": [
-            "Incomplete Combuster",
-            "Aftertune Combuster",
-            "Renmant Combuster",
-            "Reverb Combuster",
-        ],
-    },
-    {
         "base": "LF Exoswarm Core",
         "variants": [
             "LF Exoswarm Core",
@@ -148,6 +139,15 @@ FORGERY_DROP = [
             "Layered Wing Polarizer",
         ],
     },
+    {
+        "base": "Spliced String",
+        "variants": [
+            "Spliced String",
+            "Broken String",
+            "Solidifed String",
+            "Melodic String",
+        ],
+    },
 ]
 BOSS_DROP = [
     "Mysterious Code",
@@ -181,6 +181,7 @@ WEEKLY_DROP = [
     "When Irises Bloom",
     "Curse of the Abyss",
     "Gold in Memory",
+    "We Who Question",
 ]
 LOCAL_MATERIAL = [
     "Iris",
@@ -210,4 +211,5 @@ LOCAL_MATERIAL = [
     "Moss Amber",
     "Edelschnee",
     "Arithmetic Shell",
+    "Redbell",
 ]
