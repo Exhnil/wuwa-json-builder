@@ -1,5 +1,6 @@
 dist/
 .env
+.venv/
 
 .vscode
 .vs
@@ -9,5 +10,5 @@ dist/
 /weapons
 /items
 
-/__pycache__
+__pycache__/
 /build

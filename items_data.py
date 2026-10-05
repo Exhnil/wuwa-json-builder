@@ -169,7 +169,7 @@ BOSS_DROP = [
     "Blighted Crown of Puppet King",
     "Abyssal Husk",
     "Suncoveter's Reach",
-    " Burning Judgment",
+    "Burning Judgment",
     "Our Choice",
 ]
 WEEKLY_DROP = [

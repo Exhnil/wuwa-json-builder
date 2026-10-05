@@ -1,0 +1,24 @@
+[project]
+name = "wuwa-json-builder"
+version = "0.1.0"
+description = "Wuthering Waves assets json builder"
+readme = "README.md"
+authors = [
+    { name = "exhnil", email = "g.confiac@live.fr" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "streamlit>=1.50,<2",
+]
+
+[project.scripts]
+wuwa-json-builder = "wuwa_json_builder:main"
+
+[build-system]
+requires = ["uv_build>=0.12.23,<0.13.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
