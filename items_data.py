@@ -108,7 +108,7 @@ FORGERY_DROP = [
         "variants": [
             "Incomplete Combuster",
             "Aftertune Combuster",
-            "Renmant Combuster",
+            "Remnant Combuster",
             "Reverb Combuster",
         ],
     },
@@ -144,7 +144,7 @@ FORGERY_DROP = [
         "variants": [
             "Spliced String",
             "Broken String",
-            "Solidifed String",
+            "Solidified String",
             "Melodic String",
         ],
     },

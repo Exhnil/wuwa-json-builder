@@ -1,4 +1,4 @@
-import re
+from utils import slugify
 
 
 def ascension_template_5(weapon_data):
@@ -28,7 +28,7 @@ def ascension_template_5(weapon_data):
             {"id": get_variant(weapon_data["forgery_drop"], 3), "value": 8},
         ],
         "6": [
-            {"id": "shell-credit", "value": 12000},
+            {"id": "shell-credit", "value": 120000},
             {"id": get_variant(weapon_data["enemy_drop"], 3), "value": 8},
             {"id": get_variant(weapon_data["forgery_drop"], 3), "value": 12},
         ],
@@ -110,24 +110,17 @@ ASCENSION_TEMPLATES = {
 }
 
 
-def to_kebab(s: str) -> str:
-    s = s.lower()
-    s = s.replace("'", "-")
-    s = re.sub(r"[^a-z0-9]+", "-", s)
-    return s.strip("-")
-
-
 def get_variant(item, level):
-    return to_kebab(item["variants"][level])
+    return slugify(item["variants"][level])
 
 
 def build_weapon_json(weapon_data):
-    template = ASCENSION_TEMPLATES.get(weapon_data["rarity"])
-    ascension_mats = template(weapon_data) if template else {}
+    template = ASCENSION_TEMPLATES[weapon_data["rarity"]]
+    ascension_mats = template(weapon_data)
 
     weapon_json = {
         "name": weapon_data["name"],
-        "id": to_kebab(weapon_data["id"]),
+        "id": slugify(weapon_data["id"]),
         "type": weapon_data["type"],
         "rarity": weapon_data["rarity"],
         "base_attack": weapon_data["base_attack"],

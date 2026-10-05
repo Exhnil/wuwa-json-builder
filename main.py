@@ -1,10 +1,13 @@
-import streamlit as st
-from character import build_character_json
-from weapon import build_weapon_json
 import datetime
 import json
-from items_data import ENEMY_DROP, FORGERY_DROP, BOSS_DROP, WEEKLY_DROP, LOCAL_MATERIAL
+
+import streamlit as st
+
+from character import build_character_json
 from character_data import ATTRIBUTE, CLASS, NATION, WEAPON
+from items_data import BOSS_DROP, ENEMY_DROP, FORGERY_DROP, LOCAL_MATERIAL, WEEKLY_DROP
+from utils import slugify
+from weapon import build_weapon_json
 from weapons_data import SUB_STAT
 
 st.set_page_config(page_title="Wuthering Waves API GUI")
@@ -14,20 +17,18 @@ st.title("Wuthering Waves JSON builder")
 def get_mat_by_type(domain_type: str):
     if domain_type == "Forgery Challenge":
         return [m["base"] for m in FORGERY_DROP]
-    elif domain_type == "Overlord Class":
+    if domain_type == "Overlord Class":
         return BOSS_DROP
-    elif domain_type == "Weekly Challenge":
+    if domain_type == "Weekly Challenge":
         return WEEKLY_DROP
     return []
 
 
-def get_forgery_values():
-    # Raretés 2 → 5
-    return [6.4, 8.0, 1.682, 0.206]
-
-
 if "page" not in st.session_state:
     st.session_state.page = None
+
+if "domain_materials" not in st.session_state:
+    st.session_state.domain_materials = []
 
 col1, col2, col3, col4 = st.columns(4)
 
@@ -102,7 +103,7 @@ if st.session_state.page == "character":
             local_mat = st.selectbox("Local", LOCAL_MATERIAL)
 
     character_data = {
-        "id": name.strip().lower(),
+        "id": slugify(name),
         "name": name.strip(),
         "attribute": attribute,
         "weapon": weapon,
@@ -157,7 +158,7 @@ elif st.session_state.page == "weapon":
 
     weapon_data = {
         "name": name.strip(),
-        "id": name.lower().replace(" ", "-").replace("'", "-"),
+        "id": slugify(name),
         "type": weapon_type,
         "rarity": rarity,
         "base_attack": base_attack,
@@ -179,7 +180,6 @@ elif st.session_state.page == "weapon":
         st.json(weapon_json)
 
 elif st.session_state.page == "item":
-
     SOURCES = ["enemies", "forgery", "boss", "weekly", "local"]
     TYPES = [
         "Resonator Ascension Material",
@@ -191,17 +191,17 @@ elif st.session_state.page == "item":
 
     name = st.text_input("Name")
     rarity = st.selectbox("Rarity", [1, 2, 3, 4, 5])
-    type = st.selectbox("Type", TYPES)
+    item_type = st.selectbox("Type", TYPES)
     source = st.selectbox("Source", SOURCES)
     group = st.text_input("Group")
 
     item_data = {
         "name": name.strip(),
-        "id": name.strip().lower().replace(" ", "-").replace("'", "-"),
-        "type": type,
+        "id": slugify(name),
+        "type": item_type,
         "rarity": rarity,
         "source": source,
-        "group": group,
+        "group": group.strip() or "none",
     }
 
     file_name = f"{item_data['id']}.json"
@@ -216,10 +216,9 @@ elif st.session_state.page == "item":
 
 
 elif st.session_state.page == "domain":
-
     st.subheader("Domain Form")
     name = st.text_input("Name")
-    type = st.selectbox(
+    domain_type = st.selectbox(
         "Type", ["Forgery Challenge", "Weekly Challenge", "Overlord Class"]
     )
     cost = st.number_input("Cost", min_value=0, step=1)
@@ -228,16 +227,13 @@ elif st.session_state.page == "domain":
 
     st.subheader("Materials")
 
-    available_materials = get_mat_by_type(type)
+    available_materials = get_mat_by_type(domain_type)
     base_material = st.selectbox("Select material", available_materials)
 
     add_button = st.button("Add Material")
 
-    if "domain_materials" not in st.session_state:
-        st.session_state.domain_materials = []
-
     if add_button and base_material:
-        if type == "Forgery Challenge":
+        if domain_type == "Forgery Challenge":
             drop_rates = [6.4, 8, 1.682, 0.206]
             variants = next(
                 (m["variants"] for m in FORGERY_DROP if m["base"] == base_material), []
@@ -247,7 +243,7 @@ elif st.session_state.page == "domain":
                 st.session_state.domain_materials.append(
                     {
                         "name": v,
-                        "id": v.lower().replace(" ", "-").replace("'", "-"),
+                        "id": slugify(v),
                         "rarity": i + 2,
                         "value": drop_rate,
                     }
@@ -255,13 +251,15 @@ elif st.session_state.page == "domain":
         else:
             drop_rate = (
                 3
-                if type == "Weekly Challenge"
-                else 4.1 if type == "Overlord Class" else None
+                if domain_type == "Weekly Challenge"
+                else 4.1
+                if domain_type == "Overlord Class"
+                else None
             )
             st.session_state.domain_materials.append(
                 {
                     "name": base_material,
-                    "id": base_material.lower().replace(" ", "-").replace("'", "-"),
+                    "id": slugify(base_material),
                     "value": drop_rate,
                 }
             )
@@ -273,8 +271,8 @@ elif st.session_state.page == "domain":
 
     data = {
         "name": name.strip(),
-        "id": name.strip().lower().replace(" ", "-").replace("'", "-"),
-        "type": type,
+        "id": slugify(name),
+        "type": domain_type,
         "cost": cost,
         "materials": st.session_state.domain_materials,
     }
@@ -287,7 +285,6 @@ elif st.session_state.page == "domain":
         file_name=file_name,
         mime="application/json",
     ):
-
-        st.success(f"saved successfully")
+        st.success("saved successfully")
         st.json(data)
         st.session_state.domain_materials = []
