@@ -29,6 +29,7 @@ LOCAL_MATERIAL = [
     "Redbell",
     "Dream of Stars",
     "Forget-Me-Not",
+    "Past Reveries",
     "Blade Blossom",
     "Cloudperch Seed",
     "Flowborne Dream",
