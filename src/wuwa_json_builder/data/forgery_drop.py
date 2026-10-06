@@ -35,12 +35,12 @@ FORGERY_DROP = [
         "variants": ["Cadence Seed", "Cadence Bud", "Cadence Leaf", "Cadence Blossom"],
     },
     {
-        "base": "Incomplete Combuster",
+        "base": "Incomplete Combustor",
         "variants": [
-            "Incomplete Combuster",
-            "Aftertune Combuster",
-            "Remnant Combuster",
-            "Reverb Combuster",
+            "Incomplete Combustor",
+            "Aftertune Combustor",
+            "Remnant Combustor",
+            "Reverb Combustor",
         ],
     },
     {

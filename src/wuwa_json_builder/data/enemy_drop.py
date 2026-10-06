@@ -67,12 +67,12 @@ ENEMY_DROP = [
         ],
     },
     {
-        "base": "LF Autopupper Kernel",
+        "base": "LF Autopuppet Kernel",
         "variants": [
-            "LF Autopupper Kernel",
-            "MF Autopupper Kernel",
-            "HF Autopupper Kernel",
-            "FF Autopupper Kernel",
+            "LF Autopuppet Kernel",
+            "MF Autopuppet Kernel",
+            "HF Autopuppet Kernel",
+            "FF Autopuppet Kernel",
         ],
     },
 ]

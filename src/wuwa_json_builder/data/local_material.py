@@ -33,6 +33,6 @@ LOCAL_MATERIAL = [
     "Blade Blossom",
     "Cloudperch Seed",
     "Flowborne Dream",
-    "Bloom of Hearkenning",
+    "Bloom of Hearkening",
     "Miasmic Branch",
 ]
