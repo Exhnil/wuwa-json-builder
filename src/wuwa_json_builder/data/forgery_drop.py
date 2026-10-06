@@ -79,13 +79,4 @@ FORGERY_DROP = [
             "Melodic String",
         ],
     },
-    {
-        "base": "LF Autopupper Kernel",
-        "variants": [
-            "LF Autopupper Kernel",
-            "MF Autopupper Kernel",
-            "HF Autopupper Kernel",
-            "FF Autopupper Kernel",
-        ],
-    },
 ]

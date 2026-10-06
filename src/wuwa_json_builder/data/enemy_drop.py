@@ -66,4 +66,13 @@ ENEMY_DROP = [
             "Intact Exoswarm Pendant",
         ],
     },
+    {
+        "base": "LF Autopupper Kernel",
+        "variants": [
+            "LF Autopupper Kernel",
+            "MF Autopupper Kernel",
+            "HF Autopupper Kernel",
+            "FF Autopupper Kernel",
+        ],
+    },
 ]
