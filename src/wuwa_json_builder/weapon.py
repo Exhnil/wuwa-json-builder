@@ -1,4 +1,4 @@
-from utils import slugify
+from .utils import slugify
 
 
 def ascension_template_5(weapon_data):

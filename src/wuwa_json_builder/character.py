@@ -1,4 +1,4 @@
-from utils import slugify
+from .utils import slugify
 
 
 def get_variant(item: dict, level: int) -> str:

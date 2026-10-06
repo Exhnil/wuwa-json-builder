@@ -3,12 +3,17 @@ import json
 
 import streamlit as st
 
-from character import build_character_json
-from character_data import ATTRIBUTE, CLASS, NATION, WEAPON
-from items_data import BOSS_DROP, ENEMY_DROP, FORGERY_DROP, LOCAL_MATERIAL, WEEKLY_DROP
-from utils import slugify
-from weapon import build_weapon_json
-from weapons_data import SUB_STAT
+from wuwa_json_builder.character import build_character_json
+from wuwa_json_builder.character_data import ATTRIBUTE, CLASS, NATION, WEAPON
+from wuwa_json_builder.data.boss_drop import BOSS_DROP
+from wuwa_json_builder.data.enemy_drop import ENEMY_DROP
+from wuwa_json_builder.data.forgery_drop import FORGERY_DROP
+from wuwa_json_builder.data.local_material import LOCAL_MATERIAL
+from wuwa_json_builder.data.weekly_drop import WEEKLY_DROP
+
+from .utils import slugify
+from .weapon import build_weapon_json
+from .weapons_data import SUB_STAT
 
 st.set_page_config(page_title="Wuthering Waves API GUI")
 st.title("Wuthering Waves JSON builder")
@@ -72,9 +77,9 @@ if st.session_state.page == "character":
         with cols[2]:
             release_date = st.date_input(
                 "Release Date",
-                value=datetime.date.today(),
+                value=datetime.datetime.now(datetime.UTC).date(),
                 min_value=datetime.date(2024, 1, 1),
-                max_value=datetime.date.today(),
+                max_value=datetime.datetime.now(datetime.UTC).date(),
             )
             release_date_str = release_date.strftime("%Y-%m-%d")
 
